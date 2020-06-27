@@ -171,5 +171,27 @@ namespace SMS.API.Api
                 return request.CreateResponse(HttpStatusCode.OK, "Xóa thành công");
             });
         }
+		
+		/// <summary>
+        /// Xóa sản phẩm
+        /// </summary>
+        /// <param name="request"> request</param>
+        /// <param name="strJsonId">json id</param>
+        [HttpPut]
+        [Route("delete")]
+        public HttpResponseMessage Delete2(HttpRequestMessage request, string strJsonId)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                if (string.IsNullOrEmpty(strJsonId))
+                {
+                    return request.CreateResponse(HttpStatusCode.BadRequest, "Xóa thất bại. Vui lòng kiểm tra lại");
+                }
+
+
+
+                return request.CreateResponse(HttpStatusCode.OK, "Xóa thành công");
+            });
+        }
     }
 }
